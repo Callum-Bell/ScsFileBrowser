@@ -7,7 +7,6 @@ public sealed partial class TextInputDialog : Form
         InitializeComponent();
         SetTheme();
         AcceptButton = ContinueBtn;
-        CancelButton = CancelBtn;
         Text = dialogTitle;
         TextInputLabel.Text = textInputLabel;
         if (!string.IsNullOrWhiteSpace(defaultTextValue))

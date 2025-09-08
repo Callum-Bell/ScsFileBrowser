@@ -1,5 +1,5 @@
-﻿using ComponentAce.Compression.Libs.zlib;
-using Ionic.Zlib;
+﻿using System.IO.Compression;
+using ComponentAce.Compression.Libs.zlib;
 using ScsFileBrowser.Logging;
 using ScsFileBrowser.Utils;
 
@@ -81,7 +81,7 @@ internal class HashEntryV2 : Entry
     {
         try
         {
-            return DeflateStream.UncompressBuffer(data[2..]);
+            return DecompressDeflate(data[2..]);
         }
         catch (Exception e)
         {
@@ -89,6 +89,15 @@ internal class HashEntryV2 : Entry
                 $"Could not inflate hash entry: 0x{Hash:X}, of '{GetArchiveFile().GetPath()}', reason: {e.Message}");
             return Array.Empty<byte>();
         }
+    }
+
+    public static byte[] DecompressDeflate(byte[] input)
+    {
+        using var inputStream = new MemoryStream(input);
+        using var deflate = new DeflateStream(inputStream, CompressionMode.Decompress);
+        using var output = new MemoryStream();
+        deflate.CopyTo(output);
+        return output.ToArray();
     }
 
     internal override bool IsDirectory()

@@ -28,104 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ContinueBtn = new ScsFileBrowser.UI.Components.ThemedButton();
-            this.CancelBtn = new ScsFileBrowser.UI.Components.ThemedButton();
-            this.InputTextBox = new ScsFileBrowser.UI.Components.ThemedTextBox();
-            this.TextInputLabel = new System.Windows.Forms.Label();
-            this.ComboBoxInputLabel = new System.Windows.Forms.Label();
-            this.InputComboBox = new System.Windows.Forms.ComboBox();
-            this.SuspendLayout();
+            ContinueBtn = new ScsFileBrowser.UI.Components.ThemedButton();
+            InputTextBox = new ScsFileBrowser.UI.Components.ThemedTextBox();
+            TextInputLabel = new Label();
+            ComboBoxInputLabel = new Label();
+            InputComboBox = new ComboBox();
+            SuspendLayout();
             // 
             // ContinueBtn
             // 
-            this.ContinueBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ContinueBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.ContinueBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ContinueBtn.Location = new System.Drawing.Point(12, 111);
-            this.ContinueBtn.Name = "ContinueBtn";
-            this.ContinueBtn.Size = new System.Drawing.Size(120, 23);
-            this.ContinueBtn.TabIndex = 0;
-            this.ContinueBtn.Text = "Continue";
-            this.ContinueBtn.UseVisualStyleBackColor = true;
-            // 
-            // CancelBtn
-            // 
-            this.CancelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelBtn.Location = new System.Drawing.Point(145, 111);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(120, 23);
-            this.CancelBtn.TabIndex = 0;
-            this.CancelBtn.Text = "Success";
-            this.CancelBtn.UseVisualStyleBackColor = true;
+            ContinueBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            ContinueBtn.DialogResult = DialogResult.OK;
+            ContinueBtn.FlatStyle = FlatStyle.Flat;
+            ContinueBtn.Location = new Point(12, 111);
+            ContinueBtn.Name = "ContinueBtn";
+            ContinueBtn.Size = new Size(253, 23);
+            ContinueBtn.TabIndex = 0;
+            ContinueBtn.Text = "Continue";
+            ContinueBtn.UseVisualStyleBackColor = true;
             // 
             // InputTextBox
             // 
-            this.InputTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.InputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.InputTextBox.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.InputTextBox.Location = new System.Drawing.Point(12, 27);
-            this.InputTextBox.Name = "InputTextBox";
-            this.InputTextBox.Size = new System.Drawing.Size(253, 20);
-            this.InputTextBox.TabIndex = 1;
-            this.InputTextBox.TextChanged += new System.EventHandler(this.InputTextBox_TextChanged);
+            InputTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            InputTextBox.BackColor = Color.FromArgb(38, 35, 58);
+            InputTextBox.BorderStyle = BorderStyle.None;
+            InputTextBox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            InputTextBox.ForeColor = Color.FromArgb(224, 222, 244);
+            InputTextBox.Location = new Point(12, 27);
+            InputTextBox.Name = "InputTextBox";
+            InputTextBox.Size = new Size(253, 20);
+            InputTextBox.TabIndex = 1;
+            InputTextBox.TextChanged += InputTextBox_TextChanged;
             // 
             // TextInputLabel
             // 
-            this.TextInputLabel.AutoSize = true;
-            this.TextInputLabel.Location = new System.Drawing.Point(12, 9);
-            this.TextInputLabel.Name = "TextInputLabel";
-            this.TextInputLabel.Size = new System.Drawing.Size(35, 15);
-            this.TextInputLabel.TabIndex = 2;
-            this.TextInputLabel.Text = "Input";
+            TextInputLabel.AutoSize = true;
+            TextInputLabel.Location = new Point(12, 9);
+            TextInputLabel.Name = "TextInputLabel";
+            TextInputLabel.Size = new Size(35, 15);
+            TextInputLabel.TabIndex = 2;
+            TextInputLabel.Text = "Input";
             // 
             // ComboBoxInputLabel
             // 
-            this.ComboBoxInputLabel.AutoSize = true;
-            this.ComboBoxInputLabel.Location = new System.Drawing.Point(12, 50);
-            this.ComboBoxInputLabel.Name = "ComboBoxInputLabel";
-            this.ComboBoxInputLabel.Size = new System.Drawing.Size(35, 15);
-            this.ComboBoxInputLabel.TabIndex = 2;
-            this.ComboBoxInputLabel.Text = "Input";
+            ComboBoxInputLabel.AutoSize = true;
+            ComboBoxInputLabel.Location = new Point(12, 50);
+            ComboBoxInputLabel.Name = "ComboBoxInputLabel";
+            ComboBoxInputLabel.Size = new Size(35, 15);
+            ComboBoxInputLabel.TabIndex = 2;
+            ComboBoxInputLabel.Text = "Input";
             // 
             // InputComboBox
             // 
-            this.InputComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.InputComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.InputComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.InputComboBox.FormattingEnabled = true;
-            this.InputComboBox.Location = new System.Drawing.Point(12, 68);
-            this.InputComboBox.Name = "InputComboBox";
-            this.InputComboBox.Size = new System.Drawing.Size(253, 23);
-            this.InputComboBox.TabIndex = 3;
-            this.InputComboBox.SelectedIndexChanged += new System.EventHandler(this.InputComboBox_SelectedIndexChanged);
+            InputComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            InputComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            InputComboBox.FlatStyle = FlatStyle.Flat;
+            InputComboBox.FormattingEnabled = true;
+            InputComboBox.Location = new Point(12, 68);
+            InputComboBox.Name = "InputComboBox";
+            InputComboBox.Size = new Size(253, 23);
+            InputComboBox.TabIndex = 3;
+            InputComboBox.SelectedIndexChanged += InputComboBox_SelectedIndexChanged;
             // 
             // ComboTextInputDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(277, 146);
-            this.Controls.Add(this.InputComboBox);
-            this.Controls.Add(this.ComboBoxInputLabel);
-            this.Controls.Add(this.TextInputLabel);
-            this.Controls.Add(this.InputTextBox);
-            this.Controls.Add(this.CancelBtn);
-            this.Controls.Add(this.ContinueBtn);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Name = "ComboTextInputDialog";
-            this.Text = "ComboInputDialog";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(277, 146);
+            Controls.Add(InputComboBox);
+            Controls.Add(ComboBoxInputLabel);
+            Controls.Add(TextInputLabel);
+            Controls.Add(InputTextBox);
+            Controls.Add(ContinueBtn);
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            Name = "ComboTextInputDialog";
+            Text = "ComboInputDialog";
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
         #endregion
 
         private Components.ThemedButton ContinueBtn;
-        private Components.ThemedButton CancelBtn;
         private Components.ThemedTextBox InputTextBox;
         private Label TextInputLabel;
         private Label ComboBoxInputLabel;

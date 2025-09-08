@@ -9,7 +9,6 @@ public sealed partial class ComboTextInputDialog : Form
         InitializeComponent();
         SetTheme();
         AcceptButton = ContinueBtn;
-        CancelButton = CancelBtn;
         Text = dialogTitle;
         TextInputLabel.Text = textInputLabel;
         ComboBoxInputLabel.Text = comboInputLabel;

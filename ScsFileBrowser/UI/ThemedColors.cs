@@ -10,7 +10,7 @@ internal static class ThemedColors
     public static readonly Color Surface = Color.FromArgb(31, 29, 46);
     public static readonly Color Overlay = Color.FromArgb(38, 35, 58);
 
-    public static readonly Color Love = Color.FromArgb(235, 111, 146);
+    public static readonly Color Love = Color.FromArgb(244, 99, 34);
     public static readonly Color Gold = Color.FromArgb(246, 193, 119);
     public static readonly Color Rose = Color.FromArgb(235, 188, 186);
 
