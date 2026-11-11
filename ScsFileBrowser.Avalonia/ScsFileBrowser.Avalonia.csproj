@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <!-- Lets the app start on newer installed runtimes (e.g. when the distro only ships .NET 9/10) -->
+    <RollForward>LatestMajor</RollForward>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RootNamespace>ScsFileBrowser.AvaloniaUI</RootNamespace>
+    <!-- Excludes the WinForms only code (clipboard helper) from the shared sources -->
+    <DefineConstants>$(DefineConstants);SCS_CROSSPLATFORM</DefineConstants>
+    <AvaloniaUseCompiledBindingsByDefault>false</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
+
+  <!-- The file system / settings / logging code is shared with the WinForms project, it is linked and not copied -->
+  <ItemGroup>
+    <Compile Include="../ScsFileBrowser/Consts.cs" Link="Core/Consts.cs" />
+    <Compile Include="../ScsFileBrowser/FileSystem/**/*.cs" LinkBase="Core/FileSystem" />
+    <Compile Include="../ScsFileBrowser/Logging/**/*.cs" LinkBase="Core/Logging" />
+    <Compile Include="../ScsFileBrowser/Settings/**/*.cs" LinkBase="Core/Settings" />
+    <Compile Include="../ScsFileBrowser/Utils/**/*.cs" LinkBase="Core/Utils" />
+    <AvaloniaResource Include="../ScsFileBrowser/logo.ico" Link="Assets/logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.3.23" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.23" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.23" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.13" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="zlib.net-mutliplatform" Version="1.0.8" />
+  </ItemGroup>
+
+</Project>

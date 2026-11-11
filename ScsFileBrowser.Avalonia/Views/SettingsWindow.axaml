@@ -1,0 +1,42 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ScsFileBrowser.AvaloniaUI.Views.SettingsWindow"
+        Title="ScsFileBrowser - Settings"
+        Icon="/Assets/logo.ico"
+        Width="460"
+        Height="520"
+        MinWidth="380"
+        MinHeight="300"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner">
+
+  <DockPanel Margin="12">
+    <StackPanel DockPanel.Dock="Bottom" Spacing="8" Margin="0,10,0,0">
+      <TextBlock x:Name="InfoLabel"
+                 Foreground="{DynamicResource FoamBrush}"
+                 TextWrapping="Wrap"
+                 MinHeight="18" />
+      <DockPanel LastChildFill="False">
+        <Button x:Name="HelpButton" DockPanel.Dock="Left" Content="?" MinWidth="32" HorizontalContentAlignment="Center" />
+        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Spacing="8">
+          <Button x:Name="AddProgramButton" Content="Add Program" />
+          <Button x:Name="AddExtensionButton" Content="Add Extension" />
+          <Button x:Name="SaveButton" Content="Save" />
+        </StackPanel>
+      </DockPanel>
+    </StackPanel>
+
+    <Grid>
+      <TreeView x:Name="SettingsTree" SelectionMode="Multiple" />
+      <TextBlock x:Name="EmptyLabel"
+                 Text="Once you add programs and extensions you will be able to see and configure them here."
+                 TextWrapping="Wrap"
+                 TextAlignment="Center"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Margin="24"
+                 Foreground="{DynamicResource FoamBrush}"
+                 IsHitTestVisible="False" />
+    </Grid>
+  </DockPanel>
+</Window>
