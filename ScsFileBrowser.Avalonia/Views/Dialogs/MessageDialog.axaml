@@ -1,0 +1,16 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ScsFileBrowser.AvaloniaUI.Views.Dialogs.MessageDialog"
+        Title="ScsFileBrowser"
+        Icon="/Assets/logo.ico"
+        SizeToContent="WidthAndHeight"
+        MinWidth="320"
+        MaxWidth="560"
+        CanResize="False"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner">
+  <StackPanel Margin="20" Spacing="18">
+    <TextBlock x:Name="MessageText" TextWrapping="Wrap" MaxWidth="520" />
+    <StackPanel x:Name="ButtonPanel" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8" />
+  </StackPanel>
+</Window>

@@ -1,0 +1,73 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="ScsFileBrowser.AvaloniaUI.App"
+             RequestedThemeVariant="Dark">
+
+  <!-- Same palette as the WinForms build (UI/ThemedColors.cs) -->
+  <Application.Resources>
+    <SolidColorBrush x:Key="MutedBrush" Color="#6e6a86" />
+    <SolidColorBrush x:Key="SubtleBrush" Color="#908caa" />
+    <SolidColorBrush x:Key="TextBrush" Color="#e0def4" />
+    <SolidColorBrush x:Key="BaseBrush" Color="#191724" />
+    <SolidColorBrush x:Key="SurfaceBrush" Color="#1f1d2e" />
+    <SolidColorBrush x:Key="OverlayBrush" Color="#26233a" />
+    <SolidColorBrush x:Key="LoveBrush" Color="#f46322" />
+    <SolidColorBrush x:Key="GoldBrush" Color="#f6c177" />
+    <SolidColorBrush x:Key="PineBrush" Color="#31748f" />
+    <SolidColorBrush x:Key="FoamBrush" Color="#9ccfd8" />
+    <SolidColorBrush x:Key="HighlightLowBrush" Color="#21202e" />
+    <SolidColorBrush x:Key="HighlightMedBrush" Color="#403d52" />
+    <SolidColorBrush x:Key="HighlightHighBrush" Color="#524f67" />
+  </Application.Resources>
+
+  <Application.Styles>
+    <FluentTheme>
+      <FluentTheme.Palettes>
+        <ColorPaletteResources x:Key="Dark"
+                               Accent="#31748f"
+                               RegionColor="#1f1d2e"
+                               AltHigh="#191724"
+                               BaseHigh="#e0def4"
+                               BaseMedium="#908caa"
+                               BaseMediumLow="#6e6a86"
+                               BaseLow="#403d52"
+                               ChromeLow="#191724"
+                               ChromeMediumLow="#1f1d2e"
+                               ChromeMedium="#26233a"
+                               ChromeHigh="#524f67" />
+      </FluentTheme.Palettes>
+    </FluentTheme>
+    <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />
+
+    <Style Selector=":is(Window)">
+      <Setter Property="Background" Value="{DynamicResource SurfaceBrush}" />
+      <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+    </Style>
+
+    <Style Selector="DataGrid">
+      <Setter Property="Background" Value="{DynamicResource OverlayBrush}" />
+      <Setter Property="BorderThickness" Value="0" />
+    </Style>
+
+    <Style Selector="TreeView">
+      <Setter Property="Background" Value="{DynamicResource OverlayBrush}" />
+    </Style>
+
+    <!-- Breadcrumb path bar -->
+    <Style Selector="Border.pathbar">
+      <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="Border.pathbar:pointerover">
+      <Setter Property="Background" Value="{DynamicResource OverlayBrush}" />
+    </Style>
+    <Style Selector="Button.pathpart">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="MinHeight" Value="0" />
+      <Setter Property="Padding" Value="6,3" />
+    </Style>
+    <Style Selector="TextBlock.pathsep">
+      <Setter Property="Foreground" Value="{DynamicResource SubtleBrush}" />
+    </Style>
+  </Application.Styles>
+</Application>

@@ -15,11 +15,14 @@ internal static class CommonUtils
         return $"{size} B";
     }
 
+#if !SCS_CROSSPLATFORM
+    // WinForms only, the cross platform (Avalonia) build uses its own clipboard service
     internal static void TextToClipboard(string path)
     {
         if (path == "") return;
         Clipboard.SetText(path);
     }
+#endif
 
     /// <summary>
     ///     Extracts the data from the <paramref name="file" /> to <paramref name="extractionDir" /> with name/path

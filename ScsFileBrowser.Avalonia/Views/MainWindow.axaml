@@ -1,0 +1,98 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:ScsFileBrowser.AvaloniaUI.Controls"
+        x:Class="ScsFileBrowser.AvaloniaUI.Views.MainWindow"
+        Title="ScsFileBrowser"
+        Icon="/Assets/logo.ico"
+        Width="1000"
+        Height="600"
+        MinWidth="600"
+        MinHeight="300">
+
+  <DockPanel>
+    <Menu DockPanel.Dock="Top" Background="{DynamicResource BaseBrush}">
+      <MenuItem Header="_File">
+        <MenuItem x:Name="OpenFileMenuItem" Header="Open _File..." />
+        <MenuItem x:Name="OpenFolderMenuItem" Header="Open F_older..." />
+        <MenuItem x:Name="OpenRecentMenuItem" Header="Open _Recent" />
+      </MenuItem>
+      <MenuItem x:Name="SettingsMenuItem" Header="_Settings" />
+    </Menu>
+
+    <Border DockPanel.Dock="Bottom" Background="{DynamicResource BaseBrush}" Padding="8,4">
+      <DockPanel LastChildFill="True">
+        <StackPanel x:Name="BusyPanel"
+                    DockPanel.Dock="Right"
+                    Orientation="Horizontal"
+                    Spacing="8"
+                    IsVisible="False">
+          <ProgressBar IsIndeterminate="True" Width="80" Height="8" VerticalAlignment="Center" />
+          <TextBlock x:Name="BusyLabel" Foreground="{DynamicResource GoldBrush}" VerticalAlignment="Center" />
+        </StackPanel>
+        <TextBlock x:Name="StatusLabel" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" />
+      </DockPanel>
+    </Border>
+
+    <Grid RowDefinitions="Auto,*" Margin="8">
+      <DockPanel Grid.Row="0" Margin="0,0,0,8">
+        <TextBlock DockPanel.Dock="Left" Text="Current Path:" VerticalAlignment="Center" Margin="0,0,8,0" />
+        <controls:PathBar x:Name="CurrentPathBar" />
+      </DockPanel>
+
+      <Grid Grid.Row="1" ColumnDefinitions="*,6,2*">
+        <DataGrid x:Name="FolderGrid"
+                  Grid.Column="0"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Extended"
+                  GridLinesVisibility="None"
+                  HeadersVisibility="Column"
+                  CanUserSortColumns="True"
+                  CanUserResizeColumns="True"
+                  CanUserReorderColumns="False">
+          <DataGrid.Columns>
+            <DataGridTextColumn Header="Folder Name" Binding="{Binding Name}" Width="240" />
+            <DataGridTextColumn Header="Sub Items" Binding="{Binding SubEntryCount}" Width="*" />
+          </DataGrid.Columns>
+        </DataGrid>
+
+        <GridSplitter Grid.Column="1" Background="{DynamicResource HighlightHighBrush}" ResizeDirection="Columns" />
+
+        <DataGrid x:Name="FileGrid"
+                  Grid.Column="2"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Extended"
+                  GridLinesVisibility="None"
+                  HeadersVisibility="Column"
+                  CanUserSortColumns="True"
+                  CanUserResizeColumns="True"
+                  CanUserReorderColumns="False">
+          <DataGrid.Columns>
+            <DataGridTextColumn Header="File Name" Binding="{Binding Name}" Width="240" />
+            <DataGridTemplateColumn Header="Source" Width="150" SortMemberPath="Source">
+              <DataGridTemplateColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock Text="{Binding Source}"
+                             ToolTip.Tip="{Binding SourcesTooltip}"
+                             VerticalAlignment="Center"
+                             Margin="12,0" />
+                </DataTemplate>
+              </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTemplateColumn Header="Size" Width="*" SortMemberPath="Size">
+              <DataGridTemplateColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock Text="{Binding SizeText}"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"
+                             Margin="12,0" />
+                </DataTemplate>
+              </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+          </DataGrid.Columns>
+        </DataGrid>
+      </Grid>
+    </Grid>
+  </DockPanel>
+</Window>
